@@ -8,18 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate {
+
+    @IBOutlet weak var textView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        textView.textContainerInset = UIEdgeInsets(top: 30, left: 30, bottom: 30, right: 30)
+        textView.delegate = self
+        textView.isScrollEnabled = false
+
+        var message = ""
+        for i in 1...10000 {
+            message += "\(i)\n"
+        }
+
+        textView.text = message
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
